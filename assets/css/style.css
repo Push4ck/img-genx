@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: --core-font;
+    font-family: var(--core-font);
     user-select: none;
     outline: none;
 }
