@@ -36,6 +36,10 @@ function displayEnlargedImage(imgUrl) {
     enlargedImage.alt = "Enlarged Image";
     enlargedImage.style.width = "100%";
 
+    // Create a div element for the blurred background
+    const blurredBackground = document.createElement("div");
+    blurredBackground.className = "blurred-background";
+
     // Create a close button
     const closeButton = document.createElement("span");
     closeButton.innerHTML = "&times;";
@@ -53,6 +57,11 @@ function displayEnlargedImage(imgUrl) {
     downloadButton.appendChild(downloadIcon);
 
     // Event listener for the close button in the enlarged image modal
+    blurredBackground.addEventListener("click", () => {
+        closePreview();
+    });
+
+    // Event listener for the close button in the enlarged image modal
     closeButton.addEventListener('click', () => {
         closePreview();
     });
@@ -66,6 +75,7 @@ function displayEnlargedImage(imgUrl) {
     previewContainer.innerHTML = "";
 
     // Append elements to the preview container
+    previewContainer.appendChild(blurredBackground);
     previewContainer.appendChild(enlargedImage);
     previewContainer.appendChild(closeButton);
     previewContainer.appendChild(downloadButton);
