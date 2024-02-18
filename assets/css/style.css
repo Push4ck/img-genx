@@ -1,5 +1,5 @@
 /* Font import from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@200;400;600&display=swap');
 
 /* Reset CSS */
 * {
@@ -7,7 +7,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--core-font);
-    user-select: none;
     outline: none;
 }
 
@@ -40,7 +39,7 @@
     --title-font: 60px;
     --close-button: 50px;
     --mini-close-button: 35px;
-    --download-button: 45px;
+    --download-button: 40px;
     --mini-download-button: 25px;
     --ultra-mini-download-button: 15px;
 
@@ -50,7 +49,7 @@
     --font-weight-heavy: 600;
 
     /* font-family */
-    --core-font: 'Poppins', sans-serif;
+    --core-font: 'Ubuntu', sans-serif;
 }
 
 /* Body Styles */
@@ -58,6 +57,7 @@ body {
     background: var(--body-color);
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -65,13 +65,13 @@ body {
 /* Container Styles */
 .container {
     position: relative;
-    width: 800px;
-    min-height: 280px;
+    width: 100%;
+    min-height: 100vh;
     color: var(--text-color);
-    background: var(--container-color);
+    /* background: var(--container-color); */
     padding: 10px 20px;
-    border-radius: 10px;
-    border: 3px solid var(--border-color);
+    /* border-radius: 10px;
+    border: 2px solid var(--border-color); */
 }
 
 .container::before,
@@ -88,41 +88,137 @@ body {
 }
 
 /* Heading Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 50px;
+    /* background-color: black; */
+}
+
 h1 {
     font-size: var(--title-font);
     font-weight: var(--font-weight-heavy);
-    margin-bottom: 30px;
-    text-align: center;
+    /* margin-bottom: 30px; */
 }
 
 h1 span {
     color: var(--span-color);
 }
 
+.suggest {
+    background-color: var(--button-color);
+    color: white;
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    width: 12%;
+    height: 40px;
+    border-radius: 99999px;
+    font-size: var(--font-medium-0);
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.suggest:hover {
+    background-color: var(--button-color-alt);
+}
+
+.suggest i {
+    font-size: var(--font-large);
+}
+
+/* Style for the popup container */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* Style for the popup content */
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  width: 50%;
+}
+
+.popup-content span {
+    margin-top: -20px;
+}
+
+.popup-content p {
+    padding: 5px 2px;
+    color: #000;
+    font-size: var(--font-medium-0);
+}
+
+/* Style for the close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Style for the close button on hover or focus */
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
 /* Image Text Styles */
 .imageText {
     display: flex;
-    margin-bottom: 10px;
+    flex-direction: column;
 }
 
 .imageText .desc {
-    font-size: var(--font-medium);
+    font-size: var(--font-medium-0);
     color: var(--text-color);
     align-items: baseline;
 }
 
+.surprise-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.img-number {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
 /* Surprise Button Styles */
 #surprise {
-    width: 90px;
-    height: 20px;
+    width: 7%;
+    height: 25px;
     cursor: pointer;
     background: var(--surprise-button);
     color: var(--border-color);
     margin-left: 10px;
-    border-radius: 5px;
-    font-size: var(--font-small);
+    border-radius: 9999px;
+    font-size: var(--font-medium);
     font-weight: var(--font-weight-heavy);
+    display: flex;
     align-items: center;
+    justify-content: center;
     border: none;
 }
 
@@ -132,16 +228,19 @@ h1 span {
 
 /* Image Count Styles */
 .imageCount p {
-    font-size: var(--font-medium);
+    font-size: var(--font-medium-0);
     font-weight: var(--font-weight-medium);
-    margin-left: 175px;
+    /* margin-left: 175px; */
     margin-right: 8px;
 }
 
 #imageCount {
-    border-radius: 200px;
+    border-radius: 9999px;
+    width: 4%;
+    height: 25px;
     border: none;
     cursor: pointer;
+    padding: 0 10px;
     background-color: var(--surprise-button);
 }
 
@@ -153,13 +252,18 @@ h1 span {
 .gen-form {
     margin-top: 5px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 0;
     width: 100%;
+    margin: 10px;
 }
 
 input {
-    width: 80%;
-    border-radius: 5px 0 0 5px;
+    width: 50%;
+    height: 50px;
+    border-radius: 10px;
     outline: none;
     border: none;
     padding: 0 15px;
@@ -170,27 +274,76 @@ input {
 }
 
 input:focus {
-    border: 3px solid var(--border-color);
+    border: 2px solid var(--border-color);
 }
 
 /* Generate Button Styles */
 #generate {
-    width: 20%;
-    height: 36px;
+    width: 15%;
+    height: 40px;
     color: var(--text-color);
     background: var(--button-color);
     cursor: pointer;
-    border-radius: 0 5px 5px 0;
-    font-size: var(--font-medium);
+    border-radius: 9999px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: var(--font-medium-0);
     font-weight: var(--font-weight-medium);
     transition: all 0.3s ease;
     border: none;
+    margin: 20px 0;
 }
 
 #generate:hover {
     background: var(--button-color-alt);
     border: none;
 }
+
+.randoms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#random-quote {
+    border-radius: 24px;
+    border: 2px solid var(--border-color);
+    margin: 20px 0;
+    padding: 40px;
+    max-width: 50%;
+    font-style: italic;
+    font-size: var(--font-large);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CSS for random Unsplash images */
+#random-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    margin: 20px 0;
+    justify-content: center;
+    margin-top: 40px;
+    overflow: hidden; /* Hide excess images */
+}
+  
+#random-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+  
+#random-images img:hover {
+    transform: scale(1.05);
+}
+  
 
 /* Loading Styles */
 #loading {
@@ -203,7 +356,7 @@ input:focus {
 /* Disabled Button Styles */
 #generate:disabled,
 #generate[disabled] {
-    border: 3px solid var(--border-color);
+    border: 2px solid var(--border-color);
     background-color: var(--surprise-button-alt);
     color: var(--disabled-button);
     cursor: auto;
@@ -222,7 +375,7 @@ input:focus {
 /* Image Grid Styles */
 #image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     margin-bottom: 10px;
     align-items: center;
@@ -234,7 +387,7 @@ input:focus {
     max-height: 200px;
     border-radius: 10px;
     cursor: pointer;
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     transition: all 0.3s ease;
     align-items: center;
 }
@@ -278,15 +431,18 @@ input:focus {
 #preview-container #download {
     position: absolute;
     display: flex;
-    bottom: -60px;
+    bottom: -75px;
+    justify-content: center;
     align-items: center;
-    padding: 5px 10px;
+    padding: 5px;
+    width: 45%;
+    display: flex;
     font-size: var(--download-button);
     cursor: pointer;
     background: var(--button-color);
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 9999px;
     color: var(--text-color);
 }
 
@@ -302,10 +458,11 @@ input:focus {
 
 .blurred-background {
     position: fixed;
-    top: -10%;
-    left: 0;
+    top: -5%;
+    left: 0%;
     width: 100%;
     height: 150%;
+    padding: 10px;
     background: var(--image-background-blur);
     z-index: -1;
 }
@@ -318,6 +475,49 @@ input:focus {
 .modal-content {
     max-width: 600px;
     margin: auto;
+}
+
+/* Footer Styles */
+footer {
+    display: flex;
+    color: white;
+    background-color: black;
+    width: 100%;
+    padding: 30px 10px;
+    justify-content: space-between;
+}
+
+.links {
+    display: flex;
+    gap: 100px;
+}
+
+.site-link,
+.social-link {
+    text-decoration: none;
+    list-style: none;
+    margin: 10px 0;
+}
+
+.social-links {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+}
+
+.social-link i {
+    font-size: 20px;
+}
+
+.site-links {
+    display: flex;
+    gap: 25px;
+}
+
+.site-link:hover,
+.social-link:hover {
+    color: #bdbdbd;
+    cursor: pointer;
 }
 
 /* Error Container Styles */
