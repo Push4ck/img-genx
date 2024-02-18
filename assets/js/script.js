@@ -211,6 +211,78 @@ document.getElementById("user-prompt").addEventListener("keydown", (event) => {
     }
 });
 
+// Function to fetch a random quote from the Quotable API
+function fetchRandomQuote() {
+    fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+            const quoteElement = document.getElementById('random-quote');
+            quoteElement.innerHTML = `<p>"${data.content}" - ${data.author}</p>`;
+        })
+        .catch(error => console.error('Error fetching random quote:', error));
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+// Function to fetch random images from the Unsplash API
+function fetchRandomImages() {
+    const numImages = 4; // Number of random images to fetch
+    const imageContainer = document.getElementById('random-images');
+    const accessKey = 'u5KruTI5rqU6y7xJyjxrj8hHgu4amctNiiG_wuSmUEY'; // Replace with your Unsplash access key
+
+    // Fetch random images from the Unsplash API
+    fetch(`https://api.unsplash.com/photos/random?client_id=${accessKey}&count=${numImages}`)
+        .then(response => response.json())
+        .then(data => {
+            // Clear any existing images
+            imageContainer.innerHTML = '';
+
+            // Iterate over the random image URLs and create <img> elements
+            data.forEach(image => {
+                const imgElement = document.createElement('img');
+                imgElement.src = image.urls.regular; // Use regular-sized image
+                imgElement.alt = 'Random Image';
+                imgElement.style.height = '200px'; // Set height to 150px
+                imgElement.style.width = '200px'; // Set width to 150px
+
+                // Append the <img> element to the image container
+                imageContainer.appendChild(imgElement);
+            });
+        })
+        .catch(error => console.error('Error fetching random images:', error));
+}
+
+    // Fetch random quote and images when the page loads
+    fetchRandomQuote();
+    fetchRandomImages();
+});
+
+// Get the button element and popup container element
+const popupButton = document.getElementById('popupButton');
+const popup = document.getElementById('popup');
+// Get the close button element inside the popup
+const closePopup = document.getElementById('closePopup');
+
+// Event listener for button click to open the popup
+popupButton.addEventListener('click', function() {
+  // Display the popup by setting its display style to 'block'
+  popup.style.display = 'block';
+});
+
+// Event listener for close button click to close the popup
+closePopup.addEventListener('click', function() {
+  // Hide the popup by setting its display style to 'none'
+  popup.style.display = 'none';
+});
+
+// Event listener for click outside the popup to close it
+window.addEventListener('click', function(event) {
+  // Check if the clicked element is the popup itself
+  if (event.target == popup) {
+    // If so, hide the popup
+    popup.style.display = 'none';
+  }
+});
+
 // Function to handle image download in the enlarged image modal
 function downloadEnlargedImage(imgUrl) {
     // Create a link element
