@@ -184,6 +184,10 @@ async function generateImages(input, maxImages) {
 
 // Event listener for the "Generate Images" button
 document.getElementById("generate").addEventListener("click", () => {
+    // Hide random quotes and random images
+    document.getElementById("random-quote").style.display = "none";
+    document.getElementById("random-images").style.display = "none";
+
     // Get user input and the maximum number of images from the input fields
     const input = document.getElementById("user-prompt").value;
     const maxImages = parseInt(document.getElementById("imageCount").value, 10);
@@ -199,6 +203,10 @@ document.getElementById("user-prompt").addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         // Prevent the default behavior of the ENTER key (form submission)
         event.preventDefault();
+
+        // Hide random quotes and random images
+        document.getElementById("random-quote").style.display = "none";
+        document.getElementById("random-images").style.display = "none";
 
         // Get user input and the maximum number of images from the input fields
         const input = document.getElementById("user-prompt").value;
@@ -223,33 +231,33 @@ function fetchRandomQuote() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-// Function to fetch random images from the Unsplash API
-function fetchRandomImages() {
-    const numImages = 4; // Number of random images to fetch
-    const imageContainer = document.getElementById('random-images');
-    const accessKey = 'u5KruTI5rqU6y7xJyjxrj8hHgu4amctNiiG_wuSmUEY'; // Replace with your Unsplash access key
+    // Function to fetch random images from the Unsplash API
+    function fetchRandomImages() {
+        const numImages = 4; // Number of random images to fetch
+        const imageContainer = document.getElementById('random-images');
+        const accessKey = 'u5KruTI5rqU6y7xJyjxrj8hHgu4amctNiiG_wuSmUEY'; // Replace with your Unsplash access key
 
-    // Fetch random images from the Unsplash API
-    fetch(`https://api.unsplash.com/photos/random?client_id=${accessKey}&count=${numImages}`)
-        .then(response => response.json())
-        .then(data => {
-            // Clear any existing images
-            imageContainer.innerHTML = '';
+        // Fetch random images from the Unsplash API
+        fetch(`https://api.unsplash.com/photos/random?client_id=${accessKey}&count=${numImages}`)
+            .then(response => response.json())
+            .then(data => {
+                // Clear any existing images
+                imageContainer.innerHTML = '';
 
-            // Iterate over the random image URLs and create <img> elements
-            data.forEach(image => {
-                const imgElement = document.createElement('img');
-                imgElement.src = image.urls.regular; // Use regular-sized image
-                imgElement.alt = 'Random Image';
-                imgElement.style.height = '200px'; // Set height to 150px
-                imgElement.style.width = '200px'; // Set width to 150px
+                // Iterate over the random image URLs and create <img> elements
+                data.forEach(image => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = image.urls.regular; // Use regular-sized image
+                    imgElement.alt = 'Random Image';
+                    imgElement.style.height = '200px'; // Set height to 150px
+                    imgElement.style.width = '200px'; // Set width to 150px
 
-                // Append the <img> element to the image container
-                imageContainer.appendChild(imgElement);
-            });
-        })
-        .catch(error => console.error('Error fetching random images:', error));
-}
+                    // Append the <img> element to the image container
+                    imageContainer.appendChild(imgElement);
+                });
+            })
+            .catch(error => console.error('Error fetching random images:', error));
+    }
 
     // Fetch random quote and images when the page loads
     fetchRandomQuote();
