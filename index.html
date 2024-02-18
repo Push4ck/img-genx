@@ -19,28 +19,45 @@
     <!-- Main container -->
     <div class="container">
         <!-- Website title -->
-        <h1>Image<span>Gen</span>X</h1>
+        <nav>
+            <h1>Image<span>Gen</span>X</h1>
+            <button class="suggest" id="popupButton">
+                Suggestions <i class="uil uil-question"></i>
+            </button>
+
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                  <span class="close" id="closePopup">&times;</span>
+                  <p>Welcome to our AI image generator website! Here, you can create stunning images using advanced artificial intelligence algorithms.</p>
+                  <p>Feel free to explore our features and create amazing artworks effortlessly!</p>
+                </div>
+              </div>
+        </nav>
 
         <!-- Description and controls for image generation -->
         <div class="imageText">
-            <p class="desc">Start with a detailed description</p>
-            <button type="button" id="surprise">Surprise me</button>
+            <div class="surprise-button">
+                <p class="desc">Start with a detailed description</p>
+                <button type="button" id="surprise">Surprise me</button>
+            </div>
 
             <!-- Dropdown to select the number of images -->
-            <label class="imageCount">
-                <p>Select the number of images</p>
-            </label>
-            <select id="imageCount">
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4" selected>4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
+            <div class="img-number">
+                <label class="imageCount">
+                    <p>Select the number of images</p>
+                </label>
+                <select id="imageCount">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4" selected>4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
         </div>
 
         <!-- Form for user input -->
@@ -54,11 +71,21 @@
             <div id="loading">Generating...</div>
             <div id="image-grid"></div>
         </div>
+
+        <!-- Random quote & images -->
+        <div class="randoms">
+            <!-- Random quotes -->
+            <div id="random-quote">
+                <p>"This is a random quote."</p>
+            </div>
+        
+            <!-- Random images -->
+            <div id="random-images"></div>
+        </div>
     </div>
 
     <!-- Enlarged image preview container -->
     <div id="preview-container">
-        
         <!-- Blurred background for the enlarged image -->
         <div class="blurred-background"></div>
         
@@ -71,6 +98,35 @@
             <button type="button" id="download">download <i class="uil uil-import"></i></button>
         </div>
     </div>
+
+    <footer>
+        <!-- Logo -->
+        <h1>Image<span>Gen</span>X</h1>
+        <!-- Links -->
+        <div class="links">
+            <ul class="site-links">
+                <li class="site-link">Home</li>
+                <li class="site-link">About</li>
+                <li class="site-link">Suggestions</li>
+                <li class="site-link">Products</li>
+            </ul>
+        <!-- social links -->
+            <ul class="social-links">
+                <li class="social-link">
+                    <i class="uil uil-twitter"></i>
+                </li>
+                <li class="social-link">
+                    <i class="uil uil-linkedin"></i>
+                </li>
+                <li class="social-link">
+                    <i class="uil uil-facebook"></i>
+                </li>
+                <li class="social-link">
+                    <i class="uil uil-instagram-alt"></i>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
     <!-- Container for displaying error messages -->
     <div id="error-container"></div>
