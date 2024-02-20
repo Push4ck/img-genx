@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Head -->
+
 <head>
     <!-- Meta tags for character set and viewport settings -->
     <meta charset="UTF-8">
@@ -14,25 +17,34 @@
     <!-- Title of the web page -->
     <title>ImageGenX</title>
 </head>
+
+<!-- Body -->
+
 <body>
+
+    <!-- Navbar -->
+    <nav>
+        <h1>Image<span>Gen</span>X</h1>
+        <button class="hello" id="popupButton">
+            Hello <img src="https://img.icons8.com/emoji/48/waving-hand-emoji.png" />
+        </button>
+
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close" id="closePopup">&times;</span>
+                <h2>Welcome to Our AI Image Generator!</h2>
+                <p>We're thrilled to have you here! Our AI-powered platform is designed to bring your imagination to
+                    life with stunning visuals.</p>
+                <p>Your creativity is what drives us forward. Whether you're a seasoned artist or just starting out,
+                    we're here to support you every step of the way.</p>
+                <p>We'd love to hear your thoughts! Share your ideas with us and help us make our platform even
+                    better.</p>
+            </div>
+        </div>
+    </nav>
 
     <!-- Main container -->
     <div class="container">
-        <!-- Website title -->
-        <nav>
-            <h1>Image<span>Gen</span>X</h1>
-            <button class="suggest" id="popupButton">
-                Suggestions <i class="uil uil-question"></i>
-            </button>
-
-            <div id="popup" class="popup">
-                <div class="popup-content">
-                  <span class="close" id="closePopup">&times;</span>
-                  <p>Welcome to our AI image generator website! Here, you can create stunning images using advanced artificial intelligence algorithms.</p>
-                  <p>Feel free to explore our features and create amazing artworks effortlessly!</p>
-                </div>
-              </div>
-        </nav>
 
         <!-- Description and controls for image generation -->
         <div class="imageText">
@@ -72,59 +84,124 @@
             <div id="image-grid"></div>
         </div>
 
+        <!-- Enlarged image preview container -->
+        <div id="preview-container">
+            <!-- Blurred background for the enlarged image -->
+            <div class="blurred-background"></div>
+
+            <div id="myModal" class="modal">
+                <!-- Close button for the enlarged image preview -->
+                <span class="close" id="closePreview">&times;</span>
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01">
+                <!-- Download button for the enlarged image -->
+                <button type="button" id="download">download <i class="uil uil-import"></i></button>
+            </div>
+        </div>
+
         <!-- Random quote & images -->
         <div class="randoms">
             <!-- Random quotes -->
             <div id="random-quote">
                 <p>"This is a random quote."</p>
             </div>
-        
+
             <!-- Random images -->
-            <div id="random-images"></div>
+            <div class="random-img">
+                <div id="random-images"></div>
+            </div>
         </div>
     </div>
 
-    <!-- Enlarged image preview container -->
-    <div id="preview-container">
-        <!-- Blurred background for the enlarged image -->
-        <div class="blurred-background"></div>
-        
-        <div id="myModal" class="modal">
-            <!-- Close button for the enlarged image preview -->
-            <span class="close" id="closePreview">&times;</span>
-            <!-- Modal Content (The Image) -->
-            <img class="modal-content" id="img01">
-            <!-- Download button for the enlarged image -->
-            <button type="button" id="download">download <i class="uil uil-import"></i></button>
+    <!-- Accordion for FAQs -->
+    <div class="accordions">
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">1. How does the text to AI image generator work?</div>
+                <div class="accordion-content">
+                    <p>The text to AI image generator uses advanced deep learning algorithms to understand the
+                        semantics of the provided text and generate corresponding visual representations. It
+                        analyzes the input text, identifies key elements, and generates an image that reflects the
+                        described content.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">2. What types of text can I input into the generator?</div>
+                <div class="accordion-content">
+                    <p>You can input various types of descriptive text into the generator, such as simple sentences,
+                        paragraphs, or even more detailed descriptions. The generator can interpret a wide range of
+                        textual descriptions to produce corresponding images.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">3. What can I use the generated images for?</div>
+                <div class="accordion-content">
+                    <p>The generated images can be used for a variety of purposes, including visual storytelling,
+                        concept illustration, content creation for websites or social media, graphic design
+                        projects, and more. The possibilities are virtually endless, limited only by your
+                        imagination.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">4. Is the text to AI image generator free to use?</div>
+                <div class="accordion-content">
+                    <p>The availability and pricing of text to AI image generators can vary. Some generators may
+                        offer free access with limited features, while others may require a subscription or payment
+                        for full access to advanced functionalities. Check the pricing and subscription options
+                        before using the generator.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">5. Can I customize or edit the generated images?</div>
+                <div class="accordion-content">
+                    <p>In most cases, the generated images are provided as final outputs. However, some generators
+                        may offer options for basic customization or editing, such as adjusting colors, adding
+                        filters, or cropping the image. Check the specific features offered by the generator you're
+                        using.</p>
+                </div>
+            </div>
         </div>
     </div>
+    </div>
 
+    <!-- Footer -->
     <footer>
-        <!-- Logo -->
-        <h1>Image<span>Gen</span>X</h1>
-        <!-- Links -->
-        <div class="links">
-            <ul class="site-links">
-                <li class="site-link">Home</li>
-                <li class="site-link">About</li>
-                <li class="site-link">Suggestions</li>
-                <li class="site-link">Products</li>
-            </ul>
-        <!-- social links -->
-            <ul class="social-links">
-                <li class="social-link">
-                    <i class="uil uil-twitter"></i>
-                </li>
-                <li class="social-link">
-                    <i class="uil uil-linkedin"></i>
-                </li>
-                <li class="social-link">
-                    <i class="uil uil-facebook"></i>
-                </li>
-                <li class="social-link">
-                    <i class="uil uil-instagram-alt"></i>
-                </li>
-            </ul>
+        <!-- Footer-top section -->
+        <div class="footer-top">
+            <!-- Logo -->
+            <h1>Image<span>Gen</span>X</h1>
+            <!-- Links -->
+            <div class="links">
+                <ul class="site-links">
+                    <li class="site-link">Home</li>
+                    <li class="site-link">About</li>
+                    <li class="site-link">Suggestions</li>
+                    <li class="site-link">Privacy policy</li>
+                </ul>
+                <!-- social links -->
+                <ul class="social-links">
+                    <li class="social-link">
+                        <i class="uil uil-twitter"></i>
+                    </li>
+                    <li class="social-link">
+                        <i class="uil uil-linkedin"></i>
+                    </li>
+                    <li class="social-link">
+                        <i class="uil uil-facebook"></i>
+                    </li>
+                    <li class="social-link">
+                        <i class="uil uil-instagram-alt"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>&copy; copyright ImageGenX, 2024. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -136,4 +213,5 @@
     <script src="assets/js/surpriseMe.js"></script>
 
 </body>
+
 </html>
