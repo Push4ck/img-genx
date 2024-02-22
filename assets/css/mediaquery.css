@@ -1,13 +1,13 @@
 /* Extra extra small devices (phones, 280px and down) */
-@media only screen and (max-width: 280px) {
+@media only screen and (min-width: 280px) {
   nav {
     width: 100%;
   }
   nav h1 {
-    font-size: 7px;
+    font-size: var(--font-medium-1);
   }
   nav .hello {
-    width: 10%;
+    width: 34%;
     font-size: var(--font-medium);
   }
   nav .hello img {
@@ -35,16 +35,18 @@
     font-size: var(--font-small);
   }
   #surprise {
-    width: 50%;
+    width: 28%;
+    font-size: var(--font-small);
   }
   #imageCount {
-    width: 16%;
+    width: 20%;
+    font-size: var(--font-small);
   }
   input {
     width: 90%;
   }
   #generate {
-    width: 25%;
+    width: 40%;
   }
   .result {
     width: 100%;
@@ -60,14 +62,19 @@
     justify-content: center;
     align-items: center;
   }
+  #random-quote {
+    font-size: var(--font-small);
+    padding: 20px;
+    max-width: 90%;
+  }
   #random-images {
-    gap: 10px;
+    /* gap: 10px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 20px 200px;
+    padding: 20px 50px;
   }
   #random-images img {
     height: 130px;
@@ -91,7 +98,7 @@
   }
   #random-quote {
     max-width: 90%;
-    font-size: var(--font-medium-0);
+    font-size: var(--font-medium);
   }
   .randoms {
     display: flex;
@@ -105,23 +112,24 @@
     align-items: center;
   }
   #random-images {
-    gap: 100px;
+    gap: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 20px 200px;
+    padding: 20px;
   }
   #random-images img {
-    height: 130px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
   }
   .accordion {
-    width: 250px;
+    width: 260px;
   }
   .accordion-header {
     font-size: var(--font-small);
+    padding-right: 40px;
   }
   .accordion-content {
     font-size: var(--font-small);
@@ -129,14 +137,19 @@
   footer {
     width: 100%;
   }
+  .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   footer h1 {
-    font-size: var(--font-small);
+    font-size: var(--font-medium-0);
   }
   .links {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 5px;
+    gap: 20px;
   }
   .site-links {
     display: flex;
@@ -154,7 +167,7 @@
 }
 
 /* Extra small devices (phones, 450px and down) */
-@media only screen and (max-width: 450px) {
+@media only screen and (min-width: 412px) {
   nav {
     width: 100%;
   }
@@ -228,11 +241,25 @@
     max-width: 90%;
     font-size: var(--font-medium-0);
   }
+  .randoms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .random-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   #random-images {
     gap: 30px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    padding: 20px 30px;
   }
   #random-images img {
     height: 130px;
